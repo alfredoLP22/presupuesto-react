@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CerrarBtn from "../img/cerrar.svg";
 import Mensaje from "./Mensaje";
 
-const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar}) => {
+const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEditar, setGastoEditar}) => {
   const [nombre, setNombre] = useState("");
   const [cantidad, setCantidad] = useState(0);
   const [categoria, setCategoria] = useState("");
@@ -17,9 +17,11 @@ const Modal = ({ setModal, animarModal, setAnimarModal, guardarGasto, gastoEdita
       setId(gastoEditar.id);
     }
   },[])
+
   const ocultarModal = () => {
     setAnimarModal(false);
-
+    setGastoEditar({});
+    
     setTimeout(() => {
       setModal(false);
     }, 500);
